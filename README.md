@@ -10,3 +10,10 @@ In the extension popup provide a JQL query that will be used for filtering out j
 descriptions of these issues. The description includes key, summary and priority of each issue as well as a specific color tag based on the priority. 
 This can be printed out and cut in four to be used as post it notes on a physical board.
 
+# Installation
+
+- Clone the repo 
+- go to chrome://extensions
+- if not already enabled, enable developer mode 
+- click 'Load unpacked'
+- point to root of the cloned repo
