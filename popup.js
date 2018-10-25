@@ -23,10 +23,10 @@ $(function(){
     	var width = doc.internal.pageSize.getWidth();
     	var height = doc.internal.pageSize.getHeight();
     	var offset = height / 4;
-    	var keyPositionY = 10;
-    	var dividerPositionY = 15;
-    	var summaryPositionY = 25;
-    	var priorityPositionY = 38;
+    	var keyPositionY = 30;
+    	var dividerPositionY = 35;
+    	var summaryPositionY = 45;
+    	var priorityPositionY = 58;
         var rectPositionY = 45;
     	var positionX = 10;
         var rectWidth = width * 0.8;
@@ -39,25 +39,25 @@ $(function(){
     		doc.setLineWidth(1);
     		doc.setDrawColor(100, 100, 100);
     		doc.rect(3, indexForPage * offset,  width - 6 , offset - 2);
-    		doc.setFontSize('22');
+    		doc.setFontSize('82');
     		doc.setFontStyle('bold');
     		doc.text(item.key, positionX, keyPositionY + indexForPage * offset);
     		doc.setFontStyle('normal');
     		doc.setFontSize('15');
-    		doc.text('_____________________________', positionX, dividerPositionY + indexForPage * offset);
+    		doc.text('__________________________________________________________', positionX, dividerPositionY + indexForPage * offset);
     		doc.text(padText(item.summary), positionX, summaryPositionY + indexForPage * offset);
     		doc.setFontStyle('italic');
     		doc.setFontSize('10');
     		doc.text('Priority: ' + item.priority, positionX, priorityPositionY + indexForPage * offset);
-            setPriorityColor(item.priority, doc)
-            doc.rect(positionX, rectPositionY + indexForPage * offset, rectWidth, rectHeight, 'F')
+            // setPriorityColor(item.priority, doc)
+            // doc.rect(positionX, rectPositionY + indexForPage * offset, rectWidth, rectHeight, 'F')
     	});
 		doc.save('tickets.pdf');
     }
 
     function padText(text) {
-        if (text.length > 80) {
-            return text.substring(0, 80) + "...";
+        if (text.length > 70) {
+            return text.substring(0, 70) + "...";
         }
         return text
     }
