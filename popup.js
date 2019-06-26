@@ -70,7 +70,12 @@ $(function(){
             'High' : high,
             'Medium': medium,
             'Low' : low,
-            'Lowest' : lowest
+            'Lowest' : lowest,
+            'P1': blocker,
+            'P2': critical,
+            'P3': high,
+            'P4': medium,
+            'P5': low
         }
 
         colorfunc = priorityColors[priority](doc);
