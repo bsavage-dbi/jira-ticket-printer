@@ -6,12 +6,12 @@ $(function(){
       var resultList = [];
       chrome.storage.local.get(['baseUrl', 'username', 'password'], function(result) {
 	      $.ajax({
-	             url: result.baseUrl + '/rest/api/latest/search?jql=' + query + '&maxResults=500',
+	             url: result.baseUrl + '/rest/api/latest/search?jql=' + query + '&maxResults=500&expand=versionedRepresentations,names',
 	             type: "GET",
 	             beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Basic ' + btoa(result.username + ':' + result.password));},
 	             success: function(json) { 
 	             	$.each(json.issues, function(index, item) {
-	             		resultList.push({'key': item.key, 'summary': item.fields.summary, 'priority' : item.fields.priority.name});
+	             		resultList.push({'key': item.key, 'summary': item.fields.summary, 'priority' : item.fields.priority.name, 'epic': item.versionedRepresentations.customfield_10014.});
 	             	})
 	             	preparePdf(resultList);
 	             }
